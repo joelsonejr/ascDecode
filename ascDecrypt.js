@@ -55,7 +55,7 @@ function decrypt(letter){
     return phrase;
 }
 
-//Function that is called by the function main, in order to decode the string. 
+//Function that is called by the main function, in order to decode the string. 
 function decode(encodedString) {
    let s = organizeString(encodedString);
    let n = 1;
