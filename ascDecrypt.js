@@ -43,7 +43,7 @@ function readLine() {
 
 
     
-//Function to convert letter info ascii code
+//Function to convert letter into ascii code
 function converToAsc(s){
     
     let ascCode = 65;
@@ -76,34 +76,9 @@ function invertString(s){
     return(ordStr);
 }
 
-//Function to convert from ascii code into letters.
-function decrypt(letter){
-     
-    
-    let phrase = "";
-    let ascCode = parseInt(letter) - 65;
-    
-    phrase = alphabet[ascCode];
-         
-    return phrase;
-}
-
-
-//Function which is called to encrypt the string
-function encode(unencodedString) {
+//function to convert from ascii string into a letter string.
+function converToLetter(s){
    
-    let s = converToAsc(unencodedString); 
-    s = invertString(s);
-
-    return s;
-
-}
-
-
-//Function that is called by the main function, in order to decode the string. 
-function decode(encodedString) {
-   
-   let s = invertString(encodedString);
    let n = 1;
    let letter = "";
    
@@ -134,6 +109,41 @@ function decode(encodedString) {
    }
    
    return letter;   
+}
+
+//Function to convert from ascii code into letters.
+function decrypt(letter){
+     
+    
+    let phrase = "";
+    let ascCode = parseInt(letter) - 65;
+    
+    phrase = alphabet[ascCode];
+         
+    return phrase;
+}
+
+
+
+//Function which is called to encrypt the string
+function encode(unencodedString) {
+   
+    let s = converToAsc(unencodedString); 
+    s = invertString(s);
+
+    return s;
+
+}
+
+
+//Function that is called by the main function, in order to decode the string. 
+function decode(encodedString) {
+   
+   let s = invertString(encodedString);
+   s = converToLetter(s);
+
+   return s;
+   
 }
 
 //The input must be a string.
