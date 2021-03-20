@@ -8,16 +8,18 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="decBox">
-        <input id="encStr" type="text">
-        <button id="decButton" onclick="decipher()">Decrypt</button>
-        <textarea name="" id="decOut" cols="30" rows="5"></textarea>
-    </div>
-    <div id="encBox">
-        <input id ="decStr" type="text">
-        <button id="encButton" onclick="cypher()">Encrypt</button>
-        <textarea name="" id="encOut" cols="30" rows="5"></textarea>
-    </div>
+    <main id="container">
+        <div id="decBox">
+            <input id="encStr" type="text">
+            <button id="decButton" onclick="decipher()">Decrypt</button>
+            <textarea name="" id="decOut" cols="30" rows="5"></textarea>
+        </div>
+        <div id="encBox">
+            <input id ="decStr" type="text">
+            <button id="encButton" onclick="cypher()">Encrypt</button>
+            <textarea name="" id="encOut" cols="30" rows="5"></textarea>
+        </div>
+    </main>
 
 
     <script src="./ascDecrypt.js"></script>
