@@ -1,0 +1,11 @@
+/* minimum reset */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+/* text fields */
+div{
+    margin: 30px 0 70px 20px;
+}

@@ -1,8 +1,8 @@
-/* TODO: Develop a frontend for the application. 
-Two input fields, and two input fields. 
-Left hand side, text input, with a div under it, to show the coded string.
-
-Right hand side, text input, with a div under it, to show the text.
+/*  TODO: remove cypher and decypher functions.
+/*  TODO: improve UI.
+/*  TODO: create a button (and a function) to erase the boxes.
+    TODO: error handling (show pop-up messages to user in case of bad input);
+    TODO: use only one field and one text box for both functions.
 
 */
 
@@ -10,37 +10,6 @@ Right hand side, text input, with a div under it, to show the text.
 'use strict';
 
 let alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "", "", "","", "", "", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-
-const fs = require('fs');
-
-process.stdin.resume();
-process.stdin.setEncoding('utf-8');
-
-let inputString = '';
-let currentLine = 0;
-
-process.stdin.on('data', function(inputStdin) {
-    inputString += inputStdin;
-});
-
-process.stdin.on('end', function() {
-    inputString = inputString.split('\n');
-
-    main();
-});
-
-function readLine() {
-    return inputString[currentLine++];
-}
-
-
-/*
- * Complete the 'decode' function below.
- *
- * The function is expected to return a STRING.
- * The function accepts STRING encodedString as parameter.
- */
-
 
     
 //Function to convert letter into ascii code
@@ -146,17 +115,28 @@ function decode(encodedString) {
    
 }
 
-//The input must be a string.
-function main(entrada) {
-    // const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
 
-    const encodedString = entrada;/* readLine(); */
+//I'll use one function to more than one action, but I'll break it down later.
+//Function to receive the encrypted string, and return the unencrypted string.
+function decipher(){
+    
+    let encString = document.getElementById("encStr")
+    let textBox = document.getElementById("decOut");
 
-    const result = decode(encodedString);
+    let result = decode(encString.value);
 
-   /*  ws.write(result + '\n');
-
-    ws.end(); */
-
-    console.log(result);
+    textBox.innerText = result;
 }
+
+//function to receive the decripeted string, and return it encrypted
+function cypher(){
+    let decString = document.getElementById("decStr");
+    let textBox = document.getElementById("encOut");
+
+    let result = encode(decString.value);
+
+    textBox.innerText = result;
+}
+ 
+
+
