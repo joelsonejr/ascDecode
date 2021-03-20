@@ -11,7 +11,11 @@ There is a program that encodes strings. What it does is take a string, replace 
 hello ---convert to asc -> 104101108108111 ---put it backwards--> 111801801101401
 
 The chalenge was to write a function (I've used a set of them), to receive that encoded string and return it decoded. 
-My next steps will be to write the encode function. After that, build a front end for the whole thing. 
+
+After finishing the challenge, I decided to improve the app a little bit more. Right now it's capable of encrypting and decrypting the string (there's still a lot of refactoring to be done). I've also added a very basic UI and UX, just to see things working. 
+As soon as I'm done making the code look a litter better, I'll put some work in the UI and the UX.
+
+
 
 
 
