@@ -2,7 +2,7 @@
 Simple app to decode strings. 
 ======================================
 
-Here you check how it's looking so far: https://joelsonejr.github.io/ascDecode/
+Here you check how it's looking so far: [go] (https://joelsonejr.github.io/ascDecode/) {:target="_blank" rel="noopener"}
 
 This app came as an aswer to a challenge a participated. The full picture:
 
