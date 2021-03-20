@@ -1,3 +1,4 @@
+/*  TODO: find out why whitespaces are not being encrypted.
 /*  TODO: remove cypher and decypher functions.
 /*  TODO: improve UI.
 /*  TODO: create a button (and a function) to erase the boxes.
@@ -11,24 +12,33 @@
 
 let alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "", "", "","", "", "", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-    
+
 //Function to convert letter into ascii code
 function converToAsc(s){
     
+    let array = s.trim();
+
     let ascCode = 65;
     let converted = "";
 
-    for (let index in s){
-        
+    for (let index in array){
+    // for (let index = 0; index < 2; index++){
         for (let letter in alphabet ) {
-            if (s[index] == alphabet[letter]){
+            if (array[index] == alphabet[letter]){
                 converted += ascCode + parseInt(letter);
             }
+            // TODO: white spaces are not being encrypted; 
+            // else if (array[index] == ' '){ 
+            //     console.log("space detected");
+            // }
             
         }
     }
 
+    let joe = hasWhiteSpace(s);
+    console.log
     return converted;
+    
 }
 
 
@@ -130,10 +140,12 @@ function decipher(){
 
 //function to receive the decripeted string, and return it encrypted
 function cypher(){
-    let decString = document.getElementById("decStr");
+    let decString = document.getElementById("decStr").value;
     let textBox = document.getElementById("encOut");
 
-    let result = encode(decString.value);
+    
+    let result = encode(decString);
+ 
 
     textBox.innerText = result;
 }
