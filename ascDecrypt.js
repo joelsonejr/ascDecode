@@ -7,6 +7,11 @@
 
 */
 
+onload = () =>{
+    let cleanUp = document.getElementsByTagName("input");
+
+    cleanUp.value = " ";
+}
 
 'use strict';
 
@@ -35,8 +40,7 @@ function converToAsc(s){
         }
     }
 
-    let joe = hasWhiteSpace(s);
-    console.log
+    
     return converted;
     
 }
