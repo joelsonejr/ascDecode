@@ -1,3 +1,4 @@
+/*  TODO: find out why whitespaces are not being encrypted.
 /*  TODO: remove cypher and decypher functions.
 /*  TODO: improve UI.
 /*  TODO: create a button (and a function) to erase the boxes.
@@ -6,30 +7,20 @@
 
 */
 
+onload = () =>{
+    let cleanUp = document.getElementsByTagName("input");
+
+    cleanUp.value = " ";
+}
 
 'use strict';
 
 let alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "", "", "","", "", "", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-    
-//Function to convert letter into ascii code
-function converToAsc(s){
-    
-    let ascCode = 65;
-    let converted = "";
+let space = [' ']
 
-    for (let index in s){
-        
-        for (let letter in alphabet ) {
-            if (s[index] == alphabet[letter]){
-                converted += ascCode + parseInt(letter);
-            }
-            
-        }
-    }
 
-    return converted;
-}
+
 
 
 // Function to invert the string. 
@@ -45,12 +36,32 @@ function invertString(s){
     return(ordStr);
 }
 
+//Function to convert letter into ascii code
+function converToAsc(s){
+    
+    let string = s.trim();
+
+    let converted = "";
+
+   
+
+    //TODO: Testin with 'charCodeAt()
+
+    for (let index in string){
+        converted += string.charCodeAt(index)
+        }
+   
+    return converted;
+    
+}
+
 //function to convert from ascii string into a letter string.
 function converToLetter(s){
    
    let n = 1;
    let letter = "";
    
+      
    for (let i = 0; i < s.length; i++){
        
        if (s[i] >= 6){
@@ -97,8 +108,16 @@ function decrypt(letter){
 //Function which is called to encrypt the string
 function encode(unencodedString) {
    
-    let s = converToAsc(unencodedString); 
+    //TODO:trying to make something I've added 's = unencodedString' 
+    let s = unencodedString.trim()
+    //TODO: console.log to see what's going on
+    console.log(s);
+    console.log(s.length)
+
+    s = converToAsc(unencodedString); 
     s = invertString(s);
+
+    
 
     return s;
 
@@ -130,10 +149,12 @@ function decipher(){
 
 //function to receive the decripeted string, and return it encrypted
 function cypher(){
-    let decString = document.getElementById("decStr");
+    let decString = document.getElementById("decStr").value.trim();
     let textBox = document.getElementById("encOut");
 
-    let result = encode(decString.value);
+    
+    let result = encode(decString);
+ 
 
     textBox.innerText = result;
 }
