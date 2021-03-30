@@ -17,33 +17,10 @@ onload = () =>{
 
 let alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "", "", "","", "", "", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
+let space = [' ']
 
-//Function to convert letter into ascii code
-function converToAsc(s){
-    
-    let array = s.trim();
 
-    let ascCode = 65;
-    let converted = "";
 
-    for (let index in array){
-    // for (let index = 0; index < 2; index++){
-        for (let letter in alphabet ) {
-            if (array[index] == alphabet[letter]){
-                converted += ascCode + parseInt(letter);
-            }
-            // TODO: white spaces are not being encrypted; 
-            // else if (array[index] == ' '){ 
-            //     console.log("space detected");
-            // }
-            
-        }
-    }
-
-    
-    return converted;
-    
-}
 
 
 // Function to invert the string. 
@@ -59,12 +36,32 @@ function invertString(s){
     return(ordStr);
 }
 
+//Function to convert letter into ascii code
+function converToAsc(s){
+    
+    let string = s.trim();
+
+    let converted = "";
+
+   
+
+    //TODO: Testin with 'charCodeAt()
+
+    for (let index in string){
+        converted += string.charCodeAt(index)
+        }
+   
+    return converted;
+    
+}
+
 //function to convert from ascii string into a letter string.
 function converToLetter(s){
    
    let n = 1;
    let letter = "";
    
+      
    for (let i = 0; i < s.length; i++){
        
        if (s[i] >= 6){
@@ -111,8 +108,16 @@ function decrypt(letter){
 //Function which is called to encrypt the string
 function encode(unencodedString) {
    
-    let s = converToAsc(unencodedString); 
+    //TODO:trying to make something I've added 's = unencodedString' 
+    let s = unencodedString.trim()
+    //TODO: console.log to see what's going on
+    console.log(s);
+    console.log(s.length)
+
+    s = converToAsc(unencodedString); 
     s = invertString(s);
+
+    
 
     return s;
 
@@ -144,7 +149,7 @@ function decipher(){
 
 //function to receive the decripeted string, and return it encrypted
 function cypher(){
-    let decString = document.getElementById("decStr").value;
+    let decString = document.getElementById("decStr").value.trim();
     let textBox = document.getElementById("encOut");
 
     
